@@ -22,6 +22,8 @@
 #include <asm/div64.h>
 #include <asm/cputime.h>
 
+#define CPU_VDD_MAX		1400
+#define CPU_VDD_MAX		1400
 #define FREQ_STEPS		52
 #define FREQ_TABLE_SIZE_OFFSET	8
 #define CPUFREQ_NAME_LEN 17
