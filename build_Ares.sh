@@ -40,7 +40,7 @@
 
 GOOGLE="/home/skater187/toolchains/android-ndk-r15c/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-"
 
-UBERTC="/home/oem/toolchains/venom-toolchain/bin/arm-linux-gnueabi-"
+UBERTC="/home/skater187/toolchains/venom-toolchain/bin/arm-linux-gnueabi-"
 
 LINARO="/home/skater187/toolchains/arm-linux-androideabi-7.3-linaro/bin/arm-eabi-"
 
@@ -52,7 +52,7 @@ KERNEL_NAME="Ares-Kernel"
 
 KERNEL_VARIANT="kltedv"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
 
-KERNEL_VERSION="beta-v1.0"   # leave as such, if no specific version tag
+KERNEL_VERSION="beta-v1.1"   # leave as such, if no specific version tag
 
 KERNEL_DEFCONFIG="Ares_@$KERNEL_VARIANT@_defconfig"
 
