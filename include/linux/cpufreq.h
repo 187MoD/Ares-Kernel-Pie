@@ -22,7 +22,10 @@
 #include <asm/div64.h>
 #include <asm/cputime.h>
 
-#define CPUFREQ_NAME_LEN 16
+#define FREQ_STEPS		52
+#define FREQ_TABLE_SIZE_OFFSET	8
+#define CPUFREQ_NAME_LEN 17
+#define CPUINFO_MAX_FREQ_LIMIT	2995000
 
 
 /*********************************************************************
