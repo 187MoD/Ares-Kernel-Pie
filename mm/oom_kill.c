@@ -101,7 +101,7 @@ static bool has_intersects_mems_allowed(struct task_struct *tsk,
 {
 	struct task_struct *start = tsk;
 
-	do {
+	for_each_thread(start, tsk) {
 		if (mask) {
 			/*
 			 * If this is a mempolicy constrained oom, tsk's
