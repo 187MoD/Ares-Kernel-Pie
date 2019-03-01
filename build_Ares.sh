@@ -50,7 +50,7 @@ ARCHITECTURE="arm"
 
 KERNEL_NAME="Ares-Kernel"
 
-KERNEL_VARIANT="kltedv"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
+KERNEL_VARIANT="all"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
 
 KERNEL_VERSION="beta-v1.1"   # leave as such, if no specific version tag
 
