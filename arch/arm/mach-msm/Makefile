@@ -497,6 +497,7 @@ obj-$(CONFIG_MSM_DEVFREQ_CPUBW) += devfreq_cpubw.o
 
 obj-$(CONFIG_WALL_CLK) += wallclk.o
 obj-$(CONFIG_WALL_CLK_SYSFS) += wallclk_sysfs.o
+obj-$(CONFIG_HAS_MACH_MEMUTILS) += memutils/
 
 obj-$(CONFIG_BT_BCM4335) += board-bluetooth-bcm4335.o
 obj-$(CONFIG_BT_BCM4339) += board-bluetooth-bcm4339.o
@@ -518,6 +519,8 @@ else
 obj-$(CONFIG_SEC_THERMISTOR) += sec_thermistor.o msm8974-thermistor.o
 endif
 obj-$(CONFIG_GSM_MODEM_SPRD6500) += board-sprd6500-spi.o board-sprd6500-modems.o
+
+obj-$(CONFIG_INTELLI_PLUG) += intelli_plug.o
 
 obj-$(CONFIG_ALUCARD_HOTPLUG) += alucard_hotplug.o
 
