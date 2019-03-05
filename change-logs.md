@@ -1,7 +1,14 @@
 # Change-logs
 # -Ares-Kernel
 
-## Beta-v1.1  February 15. 2019
+## Beta-v1.2  March 04. 2019
+*add intelliplug_hotplug
+*disabled gentle fair sleepers
+*disabled "CAF" cpu policy save code
+*added msm_mem_utils for added memory performance
+*arch/arm/kernel/traps.c:  Disable the constant spam in dmesg from 'undefined instruction' print statement
+
+## Beta-v1.1  March 01. 2019
 ##
 *Up-to-date with Lineace-OS source as of 03.01.2019
 *Ares-Kernel boot script: update default profile settings (credits: justjr)
