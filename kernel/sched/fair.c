@@ -1055,16 +1055,9 @@ static void check_spread(struct cfs_rq *cfs_rq, struct sched_entity *se)
 }
 
 static unsigned int Lgentle_fair_sleepers = 0;
-static unsigned int Larch_power = 0;
-
 void relay_gfs(unsigned int gfs)
 {
 	Lgentle_fair_sleepers = gfs;
-}
-
-void relay_ap(unsigned int ap)
-{
-	Larch_power = ap;
 }
 
 static void
@@ -3735,7 +3728,7 @@ static void update_cpu_power(struct sched_domain *sd, int cpu)
 	struct sched_group *sdg = sd->groups;
 
 	if ((sd->flags & SD_SHARE_CPUPOWER) && weight > 1) {
-		if (Larch_power)
+		if (sched_feat(ARCH_POWER))
 			power *= arch_scale_smt_power(sd, cpu);
 		else
 			power *= default_scale_smt_power(sd, cpu);
@@ -3745,7 +3738,7 @@ static void update_cpu_power(struct sched_domain *sd, int cpu)
 
 	sdg->sgp->power_orig = power;
 
-	if (Larch_power)
+	if (sched_feat(ARCH_POWER))
 		power *= arch_scale_freq_power(sd, cpu);
 	else
 		power *= default_scale_freq_power(sd, cpu);
