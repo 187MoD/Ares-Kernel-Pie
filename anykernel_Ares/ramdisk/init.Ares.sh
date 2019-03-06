@@ -36,13 +36,16 @@ if [ "$(grep -c Ares-Kernel- /proc/version)" -eq "1" ]; then
     # CPU Hotplug
     echo 0 > /sys/kernel/alucard_hotplug/hotplug_enable
     echo 0 > /sys/class/misc/mako_hotplug_control/enabled
-    echo 0 > /sys/module/lazyplug/parameters/lazyplug_active
+    echo 0 > /sys/module/intelli_plug/parameters/intelli_plug_active
+    echo 8 > /sys/module/intelli_plug/parameters/nr_run_hysteresis
+    echo 0 > /sys/module/lazyplug/parameters/nr_run_profile_sel 
+    echo 1 > /sys/module/lazyplug/parameters/lazyplug_active
     echo 8 > /sys/module/lazyplug/parameters/nr_run_hysteresis
 
     # Thermal
-    echo 1 > /sys/module/msm_thermal/vdd_restriction/enabled
+    echo 0 > /sys/module/msm_thermal/vdd_restriction/enabled
     echo 0 > /sys/module/msm_thermal/parameters/enabled
-    echo 0 > /sys/module/msm_thermal/core_control/enabled
+    echo 1 > /sys/module/msm_thermal/core_control/enabled
     echo 80 > /sys/module/msm_thermal/parameters/freq_mitig_temp_degc
     echo 90 > /sys/module/msm_thermal/parameters/core_temp_limit_degC
     echo 85 > /sys/module/msm_thermal/parameters/hotplug_temp_degC
