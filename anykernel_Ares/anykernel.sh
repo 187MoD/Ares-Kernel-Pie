@@ -76,7 +76,7 @@ grep "import /init.Ares.rc" init.rc >/dev/null || sed -i '1,/.*import.*/s/.*impo
 
  # init.qcom.rc
 backup_file init.qcom.rc;
-##remove_line init.qcom.rc "start mpdecision";
+remove_line init.qcom.rc "start mpdecision";
 insert_line init.qcom.rc "u:r:supersu:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:supersu:s0 root root -- /init.Ares.sh"
 insert_line init.qcom.rc "u:r:magisk:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:magisk:s0 root root -- /init.Ares.sh"
 insert_line init.qcom.rc "u:r:su:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:su:s0 root root -- /init.Ares.sh"
