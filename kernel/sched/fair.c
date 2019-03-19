@@ -1054,8 +1054,8 @@ static void check_spread(struct cfs_rq *cfs_rq, struct sched_entity *se)
 #endif
 }
 
-static unsigned int Lgentle_fair_sleepers = 1;
-static unsigned int Larch_power = 1;
+static unsigned int Lgentle_fair_sleepers = 0;
+static unsigned int Larch_power = 0;
 
 void relay_gfs(unsigned int gfs)
 {
@@ -4512,7 +4512,7 @@ redo:
 		env.flags |= LBF_ALL_PINNED;
 		env.src_cpu   = busiest->cpu;
 		env.src_rq    = busiest;
-		env.loop_max  = min(sysctl_sched_nr_migrate, busiest->nr_running);
+		env.loop_max  = min_t(unsigned long,sysctl_sched_nr_migrate, busiest->nr_running);
 
 more_balance:
 		local_irq_save(flags);

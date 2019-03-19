@@ -22,6 +22,7 @@
 # Huge thanks to sultanxda and justjr @ xda-developers.com
 
 on boot
+
     # CPU core control
     chmod 0644 /sys/devices/system/cpu/cpu1/online
     write /sys/devices/system/cpu/cpu1/online 1

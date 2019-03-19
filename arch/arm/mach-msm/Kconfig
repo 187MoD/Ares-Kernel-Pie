@@ -3550,12 +3550,6 @@ config MSM_DEVFREQ_CPUBW
 	  agnostic interface to so that some of the devfreq governors can be
 	  shared across SoCs.
 
-config INTELLI_PLUG
-	bool "Enable intelli-plug cpu hotplug driver"
-	default y
-	help
-	  Generic Intelli-plug cpu hotplug driver for ARM SOCs
-
 config CPU_VOLTAGE_TABLE
 	bool "Enable CPU Voltage Table via sysfs"
 	default y
@@ -3567,6 +3561,16 @@ config ALUCARD_HOTPLUG
 	default y
 	help
 	  Generic Alucard-hotplug cpu hotplug driver for ARM SOCs
+
+config MSM_CPUFREQ_LIMITER
+	tristate "MSM CPU frequency limiter"
+	help
+	  This driver limits MSM CPU frequency through sysfs file system.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called cpufreq_stats.
+
+	  If in doubt, say N.
 
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
@@ -4957,6 +4961,16 @@ config FORCE_FAST_CHARGE
 	  A simple sysfs interface to force adapters that
 	  are detected as USB to charge as AC (1A/h) or to set
 	  custom charging currents for AC and USB.
+
+config PVS_LEVEL_INTERFACE
+	bool "Expose PVS level information in sys fs (Boeffla-Kernel)"
+	help
+	 Allow PVS level to be shown in Boeffla-Config app
+
+config SPEED_LEVEL_INTERFACE
+        bool "Expose SPEED level information in sys fs"
+        help
+         Allow SPEED level to be shown into specific kernel apps
 
 endif
 

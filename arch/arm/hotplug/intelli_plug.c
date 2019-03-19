@@ -380,7 +380,7 @@ static void intelli_plug_suspend(struct early_suspend *handler)
 {
 	if (intelli_plug_active) {
 		int cpu;
-	
+
 		flush_workqueue(intelliplug_wq);
 
 		mutex_lock(&intelli_plug_mutex);

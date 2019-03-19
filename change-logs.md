@@ -1,16 +1,26 @@
 # Change-logs
 # -Ares-Kernel
 
-## Beta-v1.2  March 04. 2019
-*add intelliplug_hotplug
-*disabled gentle fair sleepers
-*disabled "CAF" cpu policy save code
+## Beta-v1.2  March 19. 2019
+##
+*Up-to-date with Lineage-OS source as of 03.19.2019
+*reverted to stock Lineage-OS LMK
+*bumped OC up to 3072 -DISCLAIMER: (You Must Adjust Voltages for you OWN specific device on higher OC steps. I AM NOT RESPOSIBLE FOR YOUR DEVICE!) 
+*bumped up voltage overhead to hopefully help stabalize new OC step
+*added Intelliplug_hotplug driver (Now default hotplug service)
+*added Touchboost driver (adjusted for 3072 oc)
+*added MSM CPU Limiter (adjusted for 3072 oc)
+*enabled Arch Power
+*added the ability to Toggle Arch Power And Sleepers (compatible with SmartPack Manager)
+*disabled "CAF" cpu policy save code (caused more harm than good)
 *added msm_mem_utils for added memory performance
-*arch/arm/kernel/traps.c:  Disable the constant spam in dmesg from 'undefined instruction' print statement
+*disabled constant spam in dmesg from 'undefined instruction' print statement in traps.c
+*ZZmoove: adjusted to acommodate Overclocking to 3072
+*some other things
 
 ## Beta-v1.1  March 01. 2019
 ##
-*Up-to-date with Lineace-OS source as of 03.01.2019
+*Up-to-date with Lineage-OS source as of 03.01.2019
 *Ares-Kernel boot script: update default profile settings (credits: justjr)
 *import Core Control fix (sunilpaulmathew)
 *import "Hotspot" fix (sunilpaulmathew)
@@ -22,11 +32,11 @@
 ## Beta-v1.0 February 13. 2019
 ##
 -Initial Merge of SmartPack Pie/Venom Sources
-*Synced With latest LineageOS Sources as of 02.13.19
+*Synced With latest Lineage-OS Sources as of 02.13.19
 *Built with Latest 8.2.1 toolchain using SunilPaulMathews build Framework
 *Compatible With Kernel Auditor & Should Be Compatible SmartPack-Kernel Manager
 *Enable OC to 2995:
-  -DISCLAIMER: (You Must Adjust Voltages for you OWN specific device on higher OC steps. I AM NOT RESPOSIBLE FOR YOUR DEVICE)
+  -DISCLAIMER: (You Must Adjust Voltages for you OWN specific device on higher OC steps. I AM NOT RESPOSIBLE FOR YOUR DEVICE!)
 *Boeffla Sound
 *Fast Charge
 *ZZmoove: adjusted to acommodate Overclocking (Thanks to Legitsu)

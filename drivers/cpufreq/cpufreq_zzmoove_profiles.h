@@ -49,7 +49,7 @@
 static char profiles_file_version[20] = "develop";
 #define PROFILE_TABLE_END ~1
 #define END_OF_PROFILES "end"
-#define PROFILE_MAX_FREQ (2995000)	// ZZ: max possible freq in system table for freq adaption (possible OC frequencies inclusive)
+#define PROFILE_MAX_FREQ (3072000)	// ZZ: max possible freq in system table for freq adaption (possible OC frequencies inclusive)
 
 struct zzmoove_profile {
 	unsigned int profile_number;

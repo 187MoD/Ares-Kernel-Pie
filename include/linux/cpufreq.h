@@ -23,11 +23,10 @@
 #include <asm/cputime.h>
 
 #define CPU_VDD_MAX		1400
-#define CPU_VDD_MAX		1400
 #define FREQ_STEPS		52
 #define FREQ_TABLE_SIZE_OFFSET	8
 #define CPUFREQ_NAME_LEN 17
-#define CPUINFO_MAX_FREQ_LIMIT	2995000
+#define CPUINFO_MAX_FREQ_LIMIT	3072000
 
 
 /*********************************************************************
@@ -290,8 +289,17 @@ void cpufreq_notify_transition(struct cpufreq_freqs *freqs, unsigned int state);
 void cpufreq_notify_utilization(struct cpufreq_policy *policy,
 		unsigned int load);
 
+#ifdef CONFIG_MSM_CPUFREQ_LIMITER
+extern unsigned int limited_max_freq;
+#endif
+
 static inline void cpufreq_verify_within_limits(struct cpufreq_policy *policy, unsigned int min, unsigned int max)
 {
+
+#ifdef CONFIG_MSM_CPUFREQ_LIMITER
+	max = min(limited_max_freq, max);
+#endif
+
 	if (policy->min < min)
 		policy->min = min;
 	if (policy->max < min)

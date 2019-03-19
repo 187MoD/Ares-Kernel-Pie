@@ -44,9 +44,12 @@ ramdisk_compression=auto;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
+
 chmod -R 750 $ramdisk/*;
 chown -R root:root $ramdisk/*;
 
+chmod 775 $ramdisk/sbin
+chmod 755 $ramdisk/sbin/busybox
 
 ## AnyKernel install
 
@@ -74,7 +77,7 @@ dump_boot;
 backup_file init.rc;
 grep "import /init.Ares.rc" init.rc >/dev/null || sed -i '1,/.*import.*/s/.*import.*/import \/init.Ares.rc\n&/' init.rc
 
- # init.qcom.rc
+# init.qcom.rc
 backup_file init.qcom.rc;
 remove_line init.qcom.rc "start mpdecision";
 insert_line init.qcom.rc "u:r:supersu:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:supersu:s0 root root -- /init.Ares.sh"
