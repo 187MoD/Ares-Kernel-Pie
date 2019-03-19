@@ -16,6 +16,7 @@
 *added msm_mem_utils for added memory performance
 *disabled constant spam in dmesg from 'undefined instruction' print statement in traps.c
 *ZZmoove: adjusted to acommodate Overclocking to 3072
+*added Boeffla In-Kernel Busybox
 *some other things
 
 ## Beta-v1.1  March 01. 2019
