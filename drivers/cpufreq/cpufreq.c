@@ -957,8 +957,7 @@ static int cpufreq_add_dev_interface(unsigned int cpu,
 
 	memcpy(&new_policy, policy, sizeof(struct cpufreq_policy));
 	/* assure that the starting sequence is run in __cpufreq_set_policy */
-		if (policy)
-		policy->governor = NULL;
+	policy->governor = NULL;
 
 	/* set default policy */
 	ret = __cpufreq_set_policy(policy, &new_policy);
@@ -1803,14 +1802,7 @@ static int __cpufreq_set_policy(struct cpufreq_policy *data,
 		pr_debug("setting range\n");
 		ret = cpufreq_driver->setpolicy(policy);
 	} else {
-		bool cpu_dup_gov = false;
-		if (policy->cpu != 0)
-		{
-			if (policy->governor != trmlpolicy[0].governor)
-				cpu_dup_gov = true;
-		}
-
-		if (policy->governor != data->governor || cpu_dup_gov) {
+		if (policy->governor != data->governor) {
 			/* save old, working values */
 			struct cpufreq_governor *old_gov = data->governor;
 
@@ -1824,10 +1816,7 @@ static int __cpufreq_set_policy(struct cpufreq_policy *data,
 			}
 
 			/* start new governor */
-						if (cpu_dup_gov)
-				data->governor = trmlpolicy[0].governor;
-			else
-				data->governor = policy->governor;
+			data->governor = policy->governor;
 
 
 			if (!__cpufreq_governor(data, CPUFREQ_GOV_POLICY_INIT)) {
