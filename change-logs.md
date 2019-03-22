@@ -1,6 +1,11 @@
 # Change-logs
 # -Ares-Kernel
 
+## Beta-v1.3  March 19. 2019
+##
+*revert: disabled "CAF" cpu policy save code (Fixed cores not scaling properly)
+*MSM Limiter updated
+
 ## Beta-v1.2  March 19. 2019
 ##
 *Up-to-date with Lineage-OS source as of 03.19.2019
@@ -8,15 +13,15 @@
 *bumped OC up to 3072 -DISCLAIMER: (You Must Adjust Voltages for you OWN specific device on higher OC steps. I AM NOT RESPOSIBLE FOR YOUR DEVICE!) 
 *bumped up voltage overhead to hopefully help stabalize new OC step
 *added Intelliplug_hotplug driver (Now default hotplug service)
-*added Touchboost driver (adjusted for 3072 oc)
-*added MSM CPU Limiter (adjusted for 3072 oc)
+*added Touchboost driver 
+*added MSM CPU Limiter
 *enabled Arch Power
 *added the ability to Toggle Arch Power And Sleepers (compatible with SmartPack Manager)
 *disabled "CAF" cpu policy save code (caused more harm than good)
 *added msm_mem_utils for added memory performance
 *disabled constant spam in dmesg from 'undefined instruction' print statement in traps.c
 *ZZmoove: adjusted to acommodate Overclocking to 3072
-*added Boeffla In-Kernel Busybox
+*added Boeffla-compiled In-Kernel Busybox
 *some other things
 
 ## Beta-v1.1  March 01. 2019
