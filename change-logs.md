@@ -1,12 +1,17 @@
 # Change-logs
 # -Ares-Kernel
 
+## Beta-v1.4  May 24. 2019
+##
+*Up-to-date with Lineage-OS source as of 05.27.2019
+*Compiled with "Bleeding-Edge-Toolchain" 9.1
+
 ## Beta-v1.3  May 21. 2019
 ##
 *Up-to-date with Lineage-OS source as of 05.21.2019
 *revert: disabled "CAF" cpu policy save code (Fixed cores not scaling properly)
 *Compiled with 03 compiler optimizations
-*MSM Limiter updated
+*MSM CPU Limiter updated
 *Allow Swap To Be Merged
 *More Tweaks I forgot about
 
