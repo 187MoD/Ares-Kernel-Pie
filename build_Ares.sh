@@ -52,7 +52,7 @@ KERNEL_NAME="Ares-Kernel"
 
 KERNEL_VARIANT="all"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
 
-KERNEL_VERSION="beta-v1.4"   # leave as such, if no specific version tag
+KERNEL_VERSION="beta-v1.5"   # leave as such, if no specific version tag
 
 KERNEL_DEFCONFIG="Ares_@$KERNEL_VARIANT@_defconfig"
 
@@ -86,7 +86,7 @@ if [ -z "$TOOLCHAIN" ]; then
 	echo -e $COLOR_GREEN"\n Initializing Google's stock toolchain...n"$COLOR_NEUTRAL
 	export CROSS_COMPILE="${CCACHE} $GOOGLE"
 elif [ "ubertc" == "$TOOLCHAIN" ]; then
-	echo -e $COLOR_GREEN"\n Initializing UBERTC-8.x...\n"$COLOR_NEUTRAL
+	echo -e $COLOR_GREEN"\n Initializing Bleeding-Edge-9.x...\n"$COLOR_NEUTRAL
 	export CROSS_COMPILE="${CCACHE} $UBERTC"
 elif [ "linaro" == "$TOOLCHAIN" ]; then
 	echo -e $COLOR_GREEN"\n Initializing Linaro-7.x toolchain...\n"$COLOR_NEUTRAL

@@ -1,6 +1,10 @@
 # Change-logs
 # -Ares-Kernel
 
+## Beta-v1.5  June 13. 2019
+##
+*Up-to-date with Lineage-OS sources as of 06.13.2019
+
 ## Beta-v1.4  May 24. 2019
 ##
 *Up-to-date with Lineage-OS source as of 05.27.2019
