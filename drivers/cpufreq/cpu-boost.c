@@ -59,9 +59,8 @@ module_param(sync_threshold, uint, 0644);
 unsigned int input_boost_freq;
 #else
 static unsigned int input_boost_freq;
-#endif
 module_param(input_boost_freq, uint, 0644);
-
+#endif
 static unsigned int input_boost_ms = 40;
 module_param(input_boost_ms, uint, 0644);
 

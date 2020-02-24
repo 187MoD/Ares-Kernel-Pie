@@ -71,7 +71,7 @@ if [ -f /tmp/anykernel/banner ]; then
   ui_print " ";
 fi;
 
-ui_print "Ares-Kernel $(cat /tmp/anykernel/ramdisk/version) for Samsung Galaxy S5";
+ui_print "Aries-Kernel $(cat /tmp/anykernel/ramdisk/version) for Samsung Galaxy S5";
 if [ -f /tmp/anykernel/version ]; then
   ui_print " ";
   ui_print "$(cat /tmp/anykernel/version)";

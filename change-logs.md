@@ -1,5 +1,26 @@
 # Change-logs
 # -Ares-Kernel
+## Beta-v1.7  Jan 08. 2020
+## First Update Since Aug 26
+####
+*Up-to-date with Lineage-OS sources as of 01.01.2020 ?
+*Compiled with "Bleeding-Edge-Toolchain" 9.2
+*Update Intelli-plug to version 3.9 (Compliments of Pascua28)
+**Disable CPU Freq Limit ?
+*sound: Compile with -Os optimization ?
+*SELinux: Allow Unknown ?
+**Fix VNSwap (pascua28) ?
+*A few other optimizations
+
+## Beta-v1.6  Aug 08. 2019
+##
+*Up-to-date with Lineage-OS sources as of 08.08.2019
+*Disabled the enormous amount of dmesg spam for Enabled clocks logging 
+*Ktoonsez EXT4 Tweak
+*cortex-A15 Optimizations for memcpy (Thanks to pascua28)
+*fix a possible memory leak in slub.c (Thanks to pascua28)
+*more VFP tweaks
+*some other crap I forgot 
 
 ## Beta-v1.5  June 13. 2019
 ##

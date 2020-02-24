@@ -40,7 +40,7 @@
 
 GOOGLE="/home/skater187/toolchains/android-ndk-r15c/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-"
 
-UBERTC="/home/skater187/toolchains/venom-toolchain_9.1/bin/arm-none-eabi-"
+UBERTC="/home/skater187/toolchains/venom-toolchain_9.2/bin/arm-none-eabi-"
 
 LINARO="/home/skater187/toolchains/arm-linux-androideabi-7.3-linaro/bin/arm-eabi-"
 
@@ -52,7 +52,7 @@ KERNEL_NAME="Ares-Kernel"
 
 KERNEL_VARIANT="kltedv"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
 
-KERNEL_VERSION="beta-v1.6"   # leave as such, if no specific version tag
+KERNEL_VERSION="beta-v1.7.0"   # leave as such, if no specific version tag
 
 KERNEL_DEFCONFIG="Ares_@$KERNEL_VARIANT@_defconfig"
 
@@ -86,7 +86,7 @@ if [ -z "$TOOLCHAIN" ]; then
 	echo -e $COLOR_GREEN"\n Initializing Google's stock toolchain...n"$COLOR_NEUTRAL
 	export CROSS_COMPILE="${CCACHE} $GOOGLE"
 elif [ "ubertc" == "$TOOLCHAIN" ]; then
-	echo -e $COLOR_GREEN"\n Initializing Bleeding-Edge-9.x...\n"$COLOR_NEUTRAL
+	echo -e $COLOR_GREEN"\n Initializing Bleeding-Edge-Toolchainn-9.x...\n"$COLOR_NEUTRAL
 	export CROSS_COMPILE="${CCACHE} $UBERTC"
 elif [ "linaro" == "$TOOLCHAIN" ]; then
 	echo -e $COLOR_GREEN"\n Initializing Linaro-7.x toolchain...\n"$COLOR_NEUTRAL
