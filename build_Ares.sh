@@ -93,6 +93,9 @@ elif [ "ubertc" == "$TOOLCHAIN" ]; then
 elif [ "linaro" == "$TOOLCHAIN" ]; then
 	echo -e $COLOR_GREEN"\n Initializing Linaro-7.x toolchain...\n"$COLOR_NEUTRAL
 	export CROSS_COMPILE="${CCACHE} $LINARO"
+elif [ "musl" == "$TOOLCHAIN" ]; then
+	echo -e $COLOR_GREEN"\n Initializing Musl toolchain...\n"$COLOR_NEUTRAL
+	export CROSS_COMPILE="${CCACHE} $MUSL"
 fi
 
 export KBUILD_BUILD_USER=187-Mod-[The~Skater~187
