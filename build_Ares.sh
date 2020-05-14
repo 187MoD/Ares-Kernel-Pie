@@ -44,7 +44,9 @@ UBERTC="/home/skater187/toolchains/venom-toolchain_9.2/bin/arm-none-eabi-"
 
 LINARO="/home/skater187/toolchains/arm-linux-androideabi-7.3-linaro/bin/arm-eabi-"
 
-TOOLCHAIN="ubertc"	# Leave empty for using Google’s stock toolchain
+MUSL="/root/armv7l-linux-musleabihf-cross/bin/armv7l-linux-musleabihf-"
+
+TOOLCHAIN="MUSL"	# Leave empty for using Google’s stock toolchain
 
 ARCHITECTURE="arm"
 
