@@ -2,6 +2,10 @@ if BLOCK
 
 menu "IO Schedulers"
 
+config IOSCHED_MAPLE
+	tristate "Maple I/O scheduler"
+	default y
+
 config IOSCHED_NOOP
 	bool
 	default y
@@ -161,6 +165,9 @@ choice
 		  any workload. It also tries to guarantee low latency to
 		  interactive and soft real-time applications.
 
+	config DEFAULT_MAPLE
+		bool "Maple" if IOSCHED_MAPLE=y
+		
 	config DEFAULT_NOOP
 		bool "No-op"
 
@@ -186,6 +193,7 @@ endchoice
 
 config DEFAULT_IOSCHED
 	string
+	default "maple" if DEFAULT_MAPLE
 	default "deadline" if DEFAULT_DEADLINE
 	default "row" if DEFAULT_ROW
 	default "cfq" if DEFAULT_CFQ
