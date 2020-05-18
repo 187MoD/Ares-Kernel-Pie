@@ -635,7 +635,6 @@ static ssize_t disksize_store(struct device *dev,
 	struct zcomp *comp;
 	struct zram_meta *meta;
 	struct zram *zram = dev_to_zram(dev);
-        char *disksize = "1073741824";
 	int err;
 
 	disksize = memparse(buf, NULL);
