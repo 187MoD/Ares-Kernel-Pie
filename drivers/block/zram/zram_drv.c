@@ -631,10 +631,11 @@ static void zram_reset_device(struct zram *zram, bool reset_capacity)
 static ssize_t disksize_store(struct device *dev,
 		struct device_attribute *attr, const char *buf, size_t len)
 {
-	u64 disksize = 1073741824;
+	u64 disksize;
 	struct zcomp *comp;
 	struct zram_meta *meta;
 	struct zram *zram = dev_to_zram(dev);
+        char *disksize = "1073741824";
 	int err;
 
 	disksize = memparse(buf, NULL);
