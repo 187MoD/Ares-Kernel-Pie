@@ -36,6 +36,18 @@ if [ "$(grep -c Ares-Kernel- /proc/version)" -eq "1" ]; then
 		echo "1" > /sys/block/zram0/reset
 		busybox sync
 	fi
+	# setting zram size to liitle more than 1024MB(1073741824)
+	echo 1073741830 > /sys/block/zram0/disksize
+    #
+    # making zram swapable
+	busybox mkswap /dev/block/zram0
+	/sbin/.magisk/busybox/mkswap /dev/block/zram0
+	mkswap /dev/block/zram0
+    #
+    # starting swap on zram
+	busybox swapon /dev/block/zram0
+	/sbin/.magisk/busybox/swapon /dev/block/zram0
+	swapon /dev/block/zram0
 	#
 	echo 70 > /proc/sys/vm/swappiness
 	#

@@ -5,11 +5,13 @@
 #
 # Modified by The~Skater~187@xda-developers.com
 #
+# Repacked to AnyKernel3 by @Blazko381 @ xda-developers.com
+#
 
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Ares Kernel by The~Skater~187@xda-developers.com
+kernel.string=Ares Kernel by The~Skater~187@xda-developers.com  Repacked to anykernel3 by @Blazko381
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
@@ -39,7 +41,7 @@ ramdisk_compression=auto;
 
 ## AnyKernel methods (DO NOT CHANGE)
 # import patching functions/variables - see for reference
-. /tmp/anykernel/tools/ak2-core.sh;
+. /tmp/anykernel/tools/ak3-core.sh;
 
 
 ## AnyKernel file attributes
@@ -48,8 +50,7 @@ ramdisk_compression=auto;
 chmod -R 750 $ramdisk/*;
 chown -R root:root $ramdisk/*;
 
-chmod 775 $ramdisk/sbin
-chmod 755 $ramdisk/sbin/busybox
+chmod 755 $ramdisk/sbin/*;
 
 ## AnyKernel install
 
@@ -60,12 +61,12 @@ android_ver=$(file_getprop /system/build.prop "ro.build.version.release");
 ui_print " ";
 ui_print "Android $android_ver detected...";
 case "$android_ver" in
-8.1.0|9) support_status="supported";;
+7.1.1|8.1.0|9|10) support_status="supported";;
   *) support_status="unsupported";;
 esac;
 ui_print " ";
 if [ ! "$support_status" == "supported" ]; then
-  ui_print "This version of Ares-Kernel is only compatible with android versions 8.1.0 & 9!";
+  ui_print "This version of Ares-Kernel is only compatible with android versions 7.1.2 & 8.1.0 & 9 & 10!";
   exit 1;
 fi;
 
@@ -89,10 +90,19 @@ insert_line init.qcom.rc "root root -- /init.Ares.sh" after "Post boot services"
 insert_line init.qcom.rc "Execute Ares boot script..." after "Post boot services" "    # Execute Ares boot script..."
 replace_string init.qcom.rc "setprop sys.io.scheduler zen" "setprop sys.io.scheduler bfq" "setprop sys.io.scheduler zen";
 
-# init.tuna.rc
+mount -o rw,remount /system
+mount -o rw,remount /system_root
 
-# fstab.tuna
+if [ -d /system_root ]; then
+ ui_print "Android 10+ detected! System-On-Root";
+ cp sbin/busybox /system_root/sbin
+ chmod 755 /system_root/sbin/busybox
+ chmod -R 755 /system_root/res/bc
+fi;
 
+replace_file /system/etc/init.d/10vnswap 755 10vnswap
+replace_file /system/etc/init/init_d.rc 755 init_d.rc
+replace_file /system/bin/sysinit 755 sysinit
 # end ramdisk changes
 
 write_boot;
