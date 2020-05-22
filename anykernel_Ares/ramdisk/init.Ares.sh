@@ -28,18 +28,33 @@
 if [ "$(grep -c Ares-Kernel- /proc/version)" -eq "1" ]; then
     echo "Apply Ares-Kernel default settings..." | tee /dev/kmsg
 	# Huge thanks to sultanxda and justjr @ xda-developers.com
-	
-	## Increase Z-RAM to 1GB
+	#
+## Increase Z-RAM to 1GB
 	# disable default zRam if configured
 	if [ -f $DISABLE_DEFAULT_ZRAM ]; then
 		busybox swapoff /dev/block/zram0
 		echo "1" > /sys/block/zram0/reset
 		busybox sync
 	fi
+	# Setting zram size to liitle more than 1024MB(1073741824)
+	 echo 1073741830 > /sys/block/zram0/disksize
 	#
-	echo 70 > /proc/sys/vm/swappiness
+	# making zram swapable
+	 mkswap /dev/block/zram0
+	 busybox mkswap /dev/block/zram0
+	 /sbin/.magisk/busybox/mkswap /dev/block/zram0
 	#
-    # Thermal
+	# starting swap on zram
+	 swapon /dev/block/zram0
+	 busybox swapon /dev/block/zram0
+	 /sbin/.magisk/busybox/swapon /dev/block/zram0
+	#
+	 echo 70 > /proc/sys/vm/swappiness
+	#
+	# Set Smart Dim
+	 echo '1' > /sys/class/graphics/fb0/smart_dim
+	#
+	# Thermal
      echo 1 >  /sys/module/msm_thermal/parameters/enabled
      echo 0 > /sys/module/msm_thermal/vdd_restriction/enabled
      echo 0 > /sys/module/msm_thermal/core_control/enabled
@@ -136,7 +151,10 @@ if [ "$(grep -c Ares-Kernel- /proc/version)" -eq "1" ]; then
      echo 2048 > /proc/sys/kernel/random/read_wakeup_threshold
      echo 2048 > /proc/sys/kernel/random/write_wakeup_threshold
      echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active
-
+	 
+	# SafetyNet
+	 chmod 640 /sys/fs/selinux/enforce;
+	 chmod 440 /sys/fs/selinux/policy;
 
     # The END
      echo "Everything done..." | tee /dev/kmsg

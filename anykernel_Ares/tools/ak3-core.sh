@@ -1,9 +1,5 @@
 ### AnyKernel methods (DO NOT CHANGE)
-<<<<<<< HEAD
-## osm0sis @ xda-developers
-=======
 ## osm0sis@xda-developers.com
->>>>>>> 71c27f1a4d3e277ee32eb3f3519ba6461384d80f
 
 OUTFD=$1;
 
