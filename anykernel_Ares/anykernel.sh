@@ -102,8 +102,9 @@ if [ -d /system_root ]; then
  chmod 755 /system_root/sbin/busybox
 fi;
 
-backup_file sysinit;
-backup_file init_d.rc;
+backup_file /system/bin/sysinit;
+backup_file /system/xbin/sysinit;
+backup_file /system/etc/init/init_d.rc;
 replace_file /system/etc/init/init_d.rc 755 init_d.rc
 replace_file /system/bin/sysinit 755 aressysinit
 # end ramdisk changes
