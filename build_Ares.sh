@@ -38,7 +38,7 @@
 
 # Toolchains
 
-GOOGLE="/home/skater187/toolchains/android-ndk-r15c/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-"
+GOOGLE="/home/smg/빌드/툴체인/musl-gcc/bin/armv7l-linux-musleabihf-"
 
 UBERTC="/home/skater187/toolchains/venom-toolchain_9.2/bin/arm-none-eabi-"
 
@@ -46,7 +46,7 @@ LINARO="/home/skater187/toolchains/arm-linux-androideabi-7.3-linaro/bin/arm-eabi
 
 MUSL="/root/armv7l-linux-musleabihf-cross/bin/armv7l-linux-musleabihf-"
 
-TOOLCHAIN="MUSL"	# Leave empty for using Google’s stock toolchain
+TOOLCHAIN=""	# Leave empty for using Google’s stock toolchain
 
 ARCHITECTURE="arm"
 
@@ -54,7 +54,7 @@ KERNEL_NAME="Ares-Kernel"
 
 KERNEL_VARIANT="all"	# options: klte, kltekor, kltedv, klteduos, kltekdi & all (build all the variants)
 
-KERNEL_VERSION="beta-v1.7.1"   # leave as such, if no specific version tag
+KERNEL_VERSION="Blazko-V1"   # leave as such, if no specific version tag
 
 KERNEL_DEFCONFIG="Ares_@$KERNEL_VARIANT@_defconfig"
 
