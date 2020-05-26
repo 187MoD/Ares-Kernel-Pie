@@ -66,8 +66,8 @@
 
 int backlight_min = 0;
 module_param(backlight_min, int, 0644);
-#define SMARTDIM_MIN 40
-#define SMARTDIM_PCC_MIN 6600	// minimum perceptible value of lowest brightness
+#define SMARTDIM_MIN 0
+#define SMARTDIM_PCC_MIN 5500	// minimum perceptible value of lowest brightness
 #define PCC_MAX 32768
 
 #define MAX_FBI_LIST 32
