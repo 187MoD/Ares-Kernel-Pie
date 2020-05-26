@@ -25,9 +25,9 @@
 # For those who want to build this kernel using this script…
 #
 
-# 1. Properly locate Stock, UBER & Linaro toolchains (Line# 40, 42 & 44)
-# 2. Select the preferred toolchain for building (Line# 46)
-# 3. Set the 'KERNEL_VARIANT' (Line# 52)
+# 1. Properly locate Stock, UBER & Linaro & Musl toolchains (Line# 40, 42 & 44 & 46)
+# 2. Select the preferred toolchain for building (Line# 48)
+# 3. Set the 'KERNEL_VARIANT' (Line# 54)
 # 4. To build all the supported variants, set 'KERNEL_VARIANT' to "all"
 # 5. Open Terminal, ‘cd’ to the Kernel ‘root’ folder and run ‘. build_variant-Ares.sh’
 # 6. The output (anykernel zip) file will be generated in the ‘release_Ares’ folder
@@ -37,16 +37,15 @@
 # ***** ***** *Variables to be configured manually* ***** ***** #
 
 # Toolchains
-
-GOOGLE="/home/smg/빌드/툴체인/musl-gcc/bin/armv7l-linux-musleabihf-"
+GOOGLE="/home/skater187/toolchains/android-ndk-r15c/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-"
 
 UBERTC="/home/skater187/toolchains/venom-toolchain_9.2/bin/arm-none-eabi-"
 
 LINARO="/home/skater187/toolchains/arm-linux-androideabi-7.3-linaro/bin/arm-eabi-"
 
-MUSL="/root/armv7l-linux-musleabihf-cross/bin/armv7l-linux-musleabihf-"
+MUSL="/home/smg/빌드/툴체인/musl-gcc/bin/armv7l-linux-musleabihf-"
 
-TOOLCHAIN=""	# Leave empty for using Google’s stock toolchain
+TOOLCHAIN="MUSL"	# Leave empty for using Google’s stock toolchain
 
 ARCHITECTURE="arm"
 
