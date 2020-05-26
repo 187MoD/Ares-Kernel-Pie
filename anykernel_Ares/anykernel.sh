@@ -100,6 +100,16 @@ if [ -d /system_root ]; then
  ui_print "Android 10+ detected! System-On-Root";
  cp sbin/busybox /system_root/sbin
  chmod 755 /system_root/sbin/busybox
+backup_file /system/vendor/etc/init/hw/init.qcom.rc;
+remove_line /system/vendor/etc/init/hw/init.qcom.rc "start mpdecision";
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "u:r:supersu:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:supersu:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "u:r:magisk:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:magisk:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "u:r:su:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:su:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "u:r:init:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:init:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "u:r:supersu:s0 root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:supersu:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "root root -- /init.Ares.sh" after "Post boot services" "    exec u:r:supersu:s0 root root -- /init.Ares.sh"
+insert_line /system/vendor/etc/init/hw/init.qcom.rc "Execute Ares boot script..." after "Post boot services" "    # Execute Ares boot script..."
+replace_string /system/vendor/etc/init/hw/init.qcom.rc "setprop sys.io.scheduler zen" "setprop sys.io.scheduler bfq" "setprop sys.io.scheduler zen";																												
 fi;
 
 backup_file /system/bin/sysinit;
