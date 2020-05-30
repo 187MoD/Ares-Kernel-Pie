@@ -2555,6 +2555,7 @@ int qseecom_shutdown_app(struct qseecom_handle **handle)
 	struct qseecom_dev_handle *data;
 
 	struct qseecom_registered_kclient_list *kclient = NULL;
+        struct qseecom_registered_kclient_list *kclient_tmp = NULL;
 	unsigned long flags = 0;
 	bool found_handle = false;
 
@@ -2567,8 +2568,8 @@ int qseecom_shutdown_app(struct qseecom_handle **handle)
 	atomic_inc(&data->ioctl_count);
 
 	spin_lock_irqsave(&qseecom.registered_kclient_list_lock, flags);
-	list_for_each_entry(kclient, &qseecom.registered_kclient_list_head,
-				list) {
+	list_for_each_entry_safe(kclient, kclient_tmp,
+		&qseecom.registered_kclient_list_head, list) {
 		if (kclient->handle == (*handle)) {
 			list_del(&kclient->list);
 			found_handle = true;
