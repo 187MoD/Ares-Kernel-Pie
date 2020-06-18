@@ -334,9 +334,6 @@ static void mdss_fb_set_bl_brightness(struct led_classdev *led_cdev,
 
 	if (smartdim_enabled)
 		bl_to_pcc(value);
-	
-	if (smartdim_enabled = 0)
-		backlight_min;
 
 	if (value < SMARTDIM_MIN && value != 0)
 		value = SMARTDIM_MIN;
