@@ -310,8 +310,8 @@ static void drm_fb_helper_dpms(struct fb_info *info, int dpms_mode)
 {
 	struct drm_fb_helper *fb_helper = info->par;
 	struct drm_device *dev = fb_helper->dev;
+	struct drm_crtc *crtc;
 	struct drm_connector *connector;
-	struct drm_mode_set *modeset;
 	int i, j;
 
 	/*
@@ -319,13 +319,14 @@ static void drm_fb_helper_dpms(struct fb_info *info, int dpms_mode)
 	 */
 	mutex_lock(&dev->mode_config.mutex);
 	for (i = 0; i < fb_helper->crtc_count; i++) {
-		modeset = &fb_helper->crtc_info[i].mode_set;
+		crtc = fb_helper->crtc_info[i].mode_set.crtc;
 
-		if (!modeset->crtc->enabled)
+		if (!crtc->enabled)
 			continue;
 
-		for (j = 0; j < modeset->num_connectors; j++) {
-			connector = modeset->connectors[j];
+		/* Walk the connectors & encoders on this fb turning them on/off */
+		for (j = 0; j < fb_helper->connector_count; j++) {
+			connector = fb_helper->connector_info[j]->connector;
 			drm_helper_connector_dpms(connector, dpms_mode);
 			drm_connector_property_set_value(connector,
 				dev->mode_config.dpms_property, dpms_mode);
